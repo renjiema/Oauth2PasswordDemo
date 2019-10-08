@@ -1,0 +1,1 @@
+springboot2.x整合Oauth2使用password模式Demo
