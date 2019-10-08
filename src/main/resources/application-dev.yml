@@ -1,0 +1,47 @@
+server:
+  port: 8085
+  servlet:
+    context-path: /oauth
+
+spring:
+  jackson:
+    time-zone: GMT+8
+  datasource:
+    name: datasource
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: org.postgresql.Driver
+      url: jdbc:postgresql://127.0.0.1/db_oauth2_test
+      username: postgres
+      password: root
+      initial-size: 3
+      min-idle: 2
+      max-active: 50
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: false
+      max-pool-prepared-statement-per-connection-size: 20
+      filters: stat
+
+
+  ##Jpa配置
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+logging:
+  level:
+    root: debug
